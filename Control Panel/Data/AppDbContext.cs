@@ -9,6 +9,9 @@ namespace Control_Panel.Data
         {
             
         }
-        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<CategoryIamge> CategoryIamges { get; set; }
+        public DbSet<ItemImage> ItemImages { get; set; }
     }
-}
+} 
