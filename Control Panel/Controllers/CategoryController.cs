@@ -22,7 +22,7 @@ namespace Control_Panel.Controllers
         }
 
         [HttpPost]
-        
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto request)
         {
             var category = new Category
@@ -162,7 +162,7 @@ namespace Control_Panel.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-       
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> EditCategory([FromRoute] Guid id, UpdateCategoryDto request)
         {
             var category = new Category
@@ -217,7 +217,7 @@ namespace Control_Panel.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
-      
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteCategory([FromRoute] Guid id)
         {
             var category = await categoryRepository.DeleteAsync(id);

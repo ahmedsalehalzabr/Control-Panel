@@ -22,7 +22,7 @@ namespace Control_Panel.Controllers
 
 
         [HttpPost]
-       
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> CreateBlogPost([FromBody] CreateItemDto request)
         {
             var blogPost = new Item
@@ -119,7 +119,7 @@ namespace Control_Panel.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-       
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> UpdateBlogPostById([FromRoute] Guid id, UpdateItemDto request)
         {
             //Convert DTO to Domain Model
@@ -166,7 +166,7 @@ namespace Control_Panel.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
-      
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteBlogPost([FromRoute] Guid id)
         {
             var deleteBlogPost = await blogPostRepository.DeleteAsync(id);
